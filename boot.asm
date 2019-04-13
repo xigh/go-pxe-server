@@ -1,3 +1,5 @@
+; nasm -o boot.bin boot.asm
+
             bits 16
             org 0x7c00
 
@@ -17,8 +19,8 @@ start:
             mov     es, ax
 
             ; clear screen
-            xor     ax, ax
-            mov     di, ax
+            mov     ax, 0x1f00
+            xor     di, di
             mov     cx, 80*25
             rep     stosw
 
@@ -30,7 +32,7 @@ print:
             test    al, al
             jz      next
             stosb
-            mov     al, 15
+            mov     al, 0x1f
             stosb
             jmp     print
 
@@ -41,5 +43,5 @@ next:
 
 iloop:      jmp     iloop
 
-message     db      "Hello World !", 0
+message     db      "Hello, this is PXE Network Boot Program !", 0
 
