@@ -1,2 +1,7 @@
 *.bin
 pxe
+hello64
+*.dis.asm
+*.o
+*.data
+*.text
