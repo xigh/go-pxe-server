@@ -185,7 +185,3 @@ iloop64:    hlt
             jmp     iloop64
 
 hello64msg  db      " - 64bits mode inited", 0
-
-; Magic numbers
-times 510 - ($ - $$) db 0
-dw 0xAA55
